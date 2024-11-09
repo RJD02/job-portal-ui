@@ -4,7 +4,7 @@ import { SearchBar } from "../../components/SearchBar/SearchBar"
 import Navbar from "../../components/Navbar"
 import { Response, useAuth } from "../../components/store/authContext"
 import { toast } from "react-toastify"
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 // model for job
 export type JobType = {
@@ -33,7 +33,7 @@ const defaultJob: JobType = {
 
 export default function Jobs() {
 
-    const [jobs, setJobs] = useState<JobType[]>([])
+    const [jobs, setJobs] = useState<JobType[]>([defaultJob])
     const location = useLocation()
     const queryParams = new URLSearchParams(location.search)
     console.log('searching for', queryParams.get('search'))
