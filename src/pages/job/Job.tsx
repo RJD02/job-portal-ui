@@ -22,7 +22,7 @@ export default function Job() {
     const [job, setJob] = useState<JobType>(defaultJob)
 
     const { id } = useParams<{ id: string }>();
-    const url = `http://localhost:5000/jobs/${id}`
+    const url = `https://job-portal-go-ntuh.onrender.com/jobs/${id}`
     const ctx = useAuth()
     console.log(job)
 

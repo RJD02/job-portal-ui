@@ -43,7 +43,7 @@ export default function Jobs() {
     useEffect(() => {
         const getJobs = async () => {
             try {
-                const url = 'http://localhost:5000/jobs'
+                const url = 'https://job-portal-go-ntuh.onrender.com/jobs'
                 const response = await fetch(url, {
                     method: "GET",
                     headers: { "Authorization": `Bearer ${ctx?.token}` }
