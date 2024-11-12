@@ -1,0 +1,10 @@
+1)form to upload details of openings (send form to change backend requirements)
+
+2)remove sign up and give rights for admin user to add another admin
+
+3)change index page and show all the jobs there in a column manner and google ads on its left and right
+same UI is followed when we click the apply now button where we can see the details of company
+
+4)Log out button
+
+5) delete sign up button and it's functions
