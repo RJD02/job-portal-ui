@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
 import ProtectedRoute from './components/Protected/Protected'
 import { useAuth } from './components/store/authContext'
+import AddJobPage from './pages/AddJob/AddJob'
 
 function App() {
     const ctx = useAuth()
@@ -22,12 +23,16 @@ function App() {
         },
         {
             path: '/jobs/:id',
-            element: <ProtectedRoute component={Job} />
+            element: <Job />
 
         }, {
             path: '/jobs',
-            element: <ProtectedRoute component={Jobs} />
+            element: <Jobs />
         },
+        {
+            path: '/add-job',
+            element: <ProtectedRoute component={AddJobPage} />
+        }
     ])
 
     if (ctx?.isLoading) {

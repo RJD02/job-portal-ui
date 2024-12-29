@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { ReactNode } from 'react'
+import { serverUrl } from "../../config/config";
+import { useNavigate } from "react-router-dom";
 
 type User = {
     username: string,
@@ -49,7 +51,7 @@ export const AuthProvider = (props: { children: ReactNode }) => {
 
         try {
 
-            const response = await fetch("https://job-portal-go-ntuh.onrender.com/auth/login", {
+            const response = await fetch(serverUrl + "/auth/login", {
                 method: "POST",
                 headers: { 'Content-Type': "application/json" },
                 body: JSON.stringify(userData)
@@ -94,7 +96,7 @@ export const AuthProvider = (props: { children: ReactNode }) => {
                 return false;
             }
 
-            const response = await fetch('https://job-portal-go-ntuh.onrender.com/auth/signup', {
+            const response = await fetch(serverUrl + '/auth/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': "application/json" },
                 body: JSON.stringify(userData)
@@ -123,20 +125,56 @@ export const AuthProvider = (props: { children: ReactNode }) => {
     }
 
     const logout = () => {
+        setIsLoading(true)
+        localStorage.clear()
         setUser({
             username: "",
             token: "",
             email: ""
         })
+        setUserToken('')
+        setIsAuthenticated(false)
+        setIsLoading(false)
+    }
+
+    const checkValidityOfToken = async (token: string) => {
+        const url = serverUrl + `/jobs`
+
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${token}` }
+        })
+        const d = await response.json()
+        console.log(d)
+        if (!response.ok) {
+            return false
+        }
+        return true;
+
     }
 
     useEffect(() => {
-        setIsLoading(true)
-        const token = localStorage.getItem('token')
-        console.log('Token is set', !!token)
-        setIsAuthenticated(!!token)
-        setUserToken(token ? token : "")
-        setIsLoading(false)
+        const loadToken = async () => {
+            setIsLoading(true)
+            const token = localStorage.getItem('token')
+            if (!token) {
+                setIsAuthenticated(!!token)
+                setUserToken('')
+
+            } else if (token) {
+                const check = await checkValidityOfToken(token)
+                console.log(check)
+                if (check) {
+                    setIsAuthenticated(true)
+                    setUserToken(token)
+                }
+            }
+            // console.log('Token is set', !!token)
+            // setIsAuthenticated(!!token)
+            // setUserToken(token ? token : "")
+            setIsLoading(false)
+        }
+        loadToken()
     }, [])
 
     return (
