@@ -13,10 +13,11 @@ const defaultJob: JobType = {
     imageUrl: "something",
     description: "This job sucks",
     role: "Next sins",
-    created: 'Yesterday',
+    created: new Date(), // Passes the current date as a Date object
     shortDescription: "Don't apply",
     salary: "Will not give"
-}
+};
+
 
 export default function Job() {
 
