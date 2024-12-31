@@ -92,7 +92,6 @@ export default function AddJobPage() {
                     className="bg-white shadow-md rounded-md p-8 w-full max-w-md space-y-6 border border-gray-200"
                 >
                     <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">Add a New Job</h2>
-
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Job Title</label>
                         <input

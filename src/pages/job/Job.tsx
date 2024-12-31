@@ -13,7 +13,7 @@ const defaultJob: JobType = {
     imageUrl: "something",
     description: "This job sucks",
     role: "Next sins",
-    created: 'Yesterday',
+    created: new Date(),
     shortDescription: "Don't apply",
     salary: "Will not give"
 }

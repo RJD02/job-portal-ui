@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { ReactNode } from 'react'
 import { serverUrl } from "../../config/config";
-import { useNavigate } from "react-router-dom";
 
 type User = {
     username: string,
