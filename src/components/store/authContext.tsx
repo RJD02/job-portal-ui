@@ -137,10 +137,10 @@ export const AuthProvider = (props: { children: ReactNode }) => {
     }
 
     const checkValidityOfToken = async (token: string) => {
-        const url = serverUrl + `/jobs`
+        const url = serverUrl
 
         const response = await fetch(url, {
-            method: "GET",
+            method: "POST",
             headers: { "Authorization": `Bearer ${token}` }
         })
         const d = await response.json()

@@ -46,12 +46,13 @@ export default function Jobs() {
         try {
             let url = '';
             if (searchTerm) {
-                url = serverUrl + `/jobs/search?term=${searchTerm}`;
+                url = serverUrl + `/search?term=${searchTerm}`;
             } else {
-                url = serverUrl + '/jobs'
+                url = serverUrl
             }
+            console.log(url)
             const response = await fetch(url, {
-                method: "GET",
+                method: "POST",
                 headers: { "Authorization": `Bearer ${ctx?.token}` }
             })
             const res: Response = await response.json()

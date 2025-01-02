@@ -16,7 +16,7 @@ function App() {
     const router = createBrowserRouter([
         {
             'path': '/',
-            element: <Home />
+            element: <Jobs />
         }, {
             path: '/auth/:type',
             element: <Auth />
