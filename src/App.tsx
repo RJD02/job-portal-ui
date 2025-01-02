@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './pages/Home'
+// import Home from './pages/Home'
 import Jobs from './pages/job/Jobs'
 import Job from './pages/job/Job'
 import Auth from './pages/Auth/Auth'
