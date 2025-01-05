@@ -10,10 +10,10 @@ export const JobCard = (props: { job: JobType }) => {
 
                 <div className="p-6 bg-white border-2 border-black rounded-lg shadow-md">
                     <div className="flex items-center justify-between">
-                        <h2 className="text-xl font-semibold text-black">{j.role}</h2>
+                        <h2 className="text-xl font-semibold text-black">{j.designation}</h2>
                         <span className="px-3 py-1 text-sm font-medium text-white bg-black rounded-full">Remote</span>
                     </div>
-                    <p className="mt-2 text-gray-700">{j.shortDescription}</p>
+                    <p className="mt-2 text-gray-700">{j.batch}</p>
 
                     <div className="mt-4">
                         <span className="block text-gray-500 text-sm">Company:</span>
