@@ -74,12 +74,11 @@ export default function Job() {
                         <p className="text-lg font-medium mt-2">{job.designation}</p>
                     </div>
                     {
-                        // <div className="mb-4">
-                        //     <h2 className="text-xl font-semibold text-gold">Description</h2>
-                        //     <p className="text-gray-700 mt-1">{job.description}</p>
-                        //     <p className="text-gray-700">{job.shortDescription}</p>
-                        // </div>
-                        // 
+                        <div className="mb-4">
+                            <h2 className="text-xl font-semibold text-gold">Description</h2>
+                            <p className="text-gray-700 mt-1">{job.description}</p>
+                        </div>
+                        
                     }
                     <div className="mb-4">
                         <h2 className="text-xl font-semibold text-gold">Salary</h2>
