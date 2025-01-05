@@ -49,7 +49,7 @@ export default function AddJobPage() {
                         shortDescription: '',
                         salary,
                         deadline,
-                        applicationLink
+                        applyLink: applicationLink
                     })
                 })
 
