@@ -9,29 +9,32 @@ import { serverUrl } from "../../config/config"
 
 // model for job
 export type JobType = {
-    id: string,
+    id: Number,
     companyName: string,
-    imageUrl: string,
+    image: string,
     description: string,
-    role: string,
-    created: Date,
-    shortDescription: string
+    designation: string,
     salary: string
-    applyLink?: string
+    applicationLink?: string
     deadline?: Date
+    location: string
+    batch: string
 }
 
-const defaultJob: JobType = {
-    companyName: "Raviraj Tech Ltd.",
-    imageUrl: "hello",
-    id: "1",
-    description: "Description",
-    shortDescription: "Short description",
-    salary: "10000-20000",
-    role: "Software Developer",
-    created: new Date
-}
+const defaultJob: JobType =
 
+{
+    "id": 1,
+    "companyName": "EY Default",
+    "designation": "DET-ASSOCIATE SOFTWARE ENGINEER-GDSN02",
+    "location": "Kolkata",
+    "description": "",
+    "image": "https://th.bing.com/th/id/OIP.hRdpi21W-qf50yPPNKsrwQHaHy?w=157&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "salary": "4.5LPA (expected)",
+    "deadline": new Date("2025-01-12"),
+    "batch": "Freshers 2024",
+    "applicationLink": "https://eyglobal.yello.co/jobs/hQQPL5j7MXwpBNVakXcM8A?job_board_id=c1riT--B2O-KySgYWsZO1Q&"
+}
 
 export default function Jobs() {
 
@@ -50,8 +53,9 @@ export default function Jobs() {
             } else {
                 url = serverUrl + '/jobs'
             }
+            url = serverUrl
             const response = await fetch(url, {
-                method: "GET",
+                method: "POST",
                 headers: { "Authorization": `Bearer ${ctx?.token}` }
             })
             const res: Response = await response.json()
@@ -59,7 +63,7 @@ export default function Jobs() {
             if (res.statuscode !== 200) {
                 toast.error(res.message)
             } else {
-                setJobs(res?.data.jobs)
+                setJobs(res?.data)
             }
         } catch (e) {
             console.log(e)
