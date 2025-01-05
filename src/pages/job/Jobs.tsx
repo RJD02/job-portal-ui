@@ -9,7 +9,7 @@ import { serverUrl } from "../../config/config"
 
 // model for job
 export type JobType = {
-    id: Number,
+    id: number,
     companyName: string,
     image: string,
     description: string,
